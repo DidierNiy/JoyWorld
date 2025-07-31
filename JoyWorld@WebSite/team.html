@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>JOY WORLD MISSION  - Team</title>
+        <title>JOY WORLD MISSION  - Changing life with the Love of God</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free Website Template" name="keywords">
         <meta content="Free Website Template" name="description">
@@ -23,7 +23,37 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+
+        <script type="text/javascript">
+   function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,ko',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+
+<style>
+  /* Hide the Google Translate dropdown and branding */
+  #google_translate_element {
+    display: none;
+  }
+
+  .goog-te-banner-frame.skiptranslate,
+  .goog-logo-link,
+  .goog-te-gadget {
+    display: none !important;
+  }
+
+       body {
+         top: 0px !important;
+           }
+       </style>
+
     </head>
+
 
     <body>
         <!-- Top Bar Start -->
@@ -276,5 +306,26 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+              <!-- Load Google Translate -->
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        <script>
+        // Auto-translate based on browser language
+          const userLang = navigator.language || navigator.userLanguage; // e.g., "ko" or "en"
+          if (userLang.startsWith("ko")) {
+          function autoTranslate() {
+           const frame = document.querySelector('iframe.goog-te-menu-frame');
+             if (frame) {
+              const innerDoc = frame.contentDocument || frame.contentWindow.document;
+               const koOption = innerDoc.querySelector('a[lang="ko"]');
+              if (koOption) koOption.click();
+             } else {
+              setTimeout(autoTranslate, 500); // Wait and retry
+              }
+            }
+             setTimeout(autoTranslate, 500);
+  }
+        </script>
     </body>
 </html>

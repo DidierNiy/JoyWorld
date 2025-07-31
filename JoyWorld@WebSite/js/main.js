@@ -177,3 +177,42 @@
     
 })(jQuery);
 
+// Auto Language Switcher Based on Time Zone
+$(document).ready(function () {
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    let lang = "en"; // Default to English
+
+    if (timeZone === "Asia/Seoul") {
+        lang = "ko"; // Korean
+    }
+
+    const translations = {
+        en: {
+            welcome: "Welcome",
+            donate: "Donate Now",
+            readMore: "Read More",
+            upcoming: "Upcoming Events"
+            // Add more keys based on your site
+        },
+        ko: {
+            welcome: "환영합니다",
+            donate: "지금 기부하기",
+            readMore: "더 읽기",
+            upcoming: "다가오는 이벤트"
+            // Translate more as needed
+        }
+    };
+
+    function translatePage() {
+        $('[data-i18n]').each(function () {
+            const key = $(this).data('i18n');
+            if (translations[lang][key]) {
+                $(this).text(translations[lang][key]);
+            }
+        });
+    }
+
+    translatePage();
+});
+
+
